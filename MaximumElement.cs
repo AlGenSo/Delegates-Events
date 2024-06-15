@@ -58,10 +58,6 @@
             console += $"Максимальное число: {maxElement}\n\r\n\r";
 
             return console;
-
-            //Console.WriteLine("Задача 'Максимальное число'\n\r");
-            //Console.WriteLine("На вход даны числа 1, 7.45, -23");
-            //Console.WriteLine($"Максимальное число: {maxElement}\n\r\n\r");
         }
     }
 }

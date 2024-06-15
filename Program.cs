@@ -22,6 +22,7 @@ EventHandler<FileArgs> handler = (search, fileArgs) =>
 traversingFileDirectory.FileFound += handler;
 
 Console.WriteLine(traversingFileDirectory.Search(@"D:\OTUS\Делегаты и события", "*"));
+
 traversingFileDirectory.FileFound -= handler;
 
 
