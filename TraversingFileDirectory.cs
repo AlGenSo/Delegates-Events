@@ -1,4 +1,6 @@
-﻿namespace Delegates_Events
+﻿using System;
+
+namespace Delegates_Events
 {
     /// <summary>
     /// Класс, обходящий каталог файлов
@@ -8,16 +10,25 @@
     {
         public event EventHandler<FileArgs> FileFound;
 
-        public void Search(string dir, string param)
+        public string Search(string dir, string param)
         {
+            string console = "";
+
+            if(!File.Exists(dir))
+            {
+                console = "Файлов в папке не обнаружено!";
+            }
+
             foreach (var file in Directory.EnumerateFiles(dir, param))
             {
                 var fileFound = ShowFoundFile(file);
-                Console.WriteLine($"Файл {Path.GetFileName(file)} найден");
+                console += $"Файл {Path.GetFileName(file)} найден\r\n";
 
                 if (fileFound.CancelingSearch)
                     break;
             }
+
+            return console;
         }
 
         private FileArgs ShowFoundFile(string file)

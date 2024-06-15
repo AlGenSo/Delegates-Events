@@ -42,7 +42,7 @@
             _ => throw new ArgumentException("Не удается преобразовать тип")
         };
 
-        public static void Run()
+        public static string Run()
         {
             List<IFloatValue> list = new()
             {
@@ -52,9 +52,16 @@
             };
 
             float maxElement = list.GetMax<IFloatValue>(GetParameter).Value;
-            Console.WriteLine("Задача 'Максимальное число'\n\r");
-            Console.WriteLine("На вход даны числа 1, 7.45, -23");
-            Console.WriteLine($"Максимальное число: {maxElement}\n\r\n\r");
+
+            string console = "Задача 'Максимальное число'\n\r";
+            console += "На вход даны числа 1, 7.45, -23";
+            console += $"Максимальное число: {maxElement}\n\r\n\r";
+
+            return console;
+
+            //Console.WriteLine("Задача 'Максимальное число'\n\r");
+            //Console.WriteLine("На вход даны числа 1, 7.45, -23");
+            //Console.WriteLine($"Максимальное число: {maxElement}\n\r\n\r");
         }
     }
 }

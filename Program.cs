@@ -1,6 +1,6 @@
 ﻿using Delegates_Events;
 
-MaxElement.Run();
+Console.WriteLine(MaxElement.Run());
 
 Console.WriteLine("Задача 'Вывести в консоль сообщения, возникающие при срабатывании событий.'");
 Console.WriteLine("Отмена дальнейшего поиска, если найден файл с расширением '.py'\n\r");
@@ -21,9 +21,10 @@ EventHandler<FileArgs> handler = (search, fileArgs) =>
 
 traversingFileDirectory.FileFound += handler;
 
-traversingFileDirectory.Search(@"D:\OTUS\Делегаты и события", "*");
+Console.WriteLine(traversingFileDirectory.Search(@"D:\OTUS\Делегаты и события", "*"));
 traversingFileDirectory.FileFound -= handler;
 
 
 Console.WriteLine($"\n\rНайдено файлов: {t}");
-Console.WriteLine($"Отмена обработчика на {Path.GetFileName(filesnames[t-1])}");
+
+if(t > 0) Console.WriteLine($"Отмена обработчика на {Path.GetFileName(filesnames[t - 1])}");
